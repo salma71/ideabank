@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import IdeasList from './components/ideas_list'
+import IdeasList from './components/ideas_index'
 
 class App extends Component {
   render() {
