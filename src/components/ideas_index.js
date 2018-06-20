@@ -10,6 +10,7 @@ class IdeasIndex extends Component {
     // which go and fetch some data or initiate one time loading process
 
     render() {
+        console.log(this.props.ideas)
         return(
             <div>
                 #IdeasIndex 
@@ -17,8 +18,8 @@ class IdeasIndex extends Component {
         )
     }
 }
-// function mapStateToProps(state) {
-//     return {ideas: state.ideas}
-// }
-export default connect(null, { fetchIdeas })(IdeasIndex);
+function mapStateToProps(state) {
+    return {ideas: state.ideas}
+}
+export default connect(mapStateToProps, { fetchIdeas })(IdeasIndex);
 // 
