@@ -17,6 +17,19 @@ class IdeasNew extends Component {
         )
     }
 
+    renderBodyField(field) {
+        return (
+            <div className="form-group">
+                <label>Body:</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    {...field.input}
+                />
+            </div>
+        )
+    }
+
     render() {
         return(
             <div>
@@ -27,6 +40,10 @@ class IdeasNew extends Component {
                     name="title" //what piece of state the user want to create
                     component={this.renderTitleField} //takes fun to display the component - help Field to 
                     // show himself on the screen
+                    />
+                    <Field 
+                        name="body"
+                        component={this.renderBodyField}
                     />
                 </form>
             </div>
