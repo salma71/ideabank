@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form'  // similar to connect helper
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createIdea } from '../actions'
 
 class IdeasNew extends Component {
     renderField(field) {
@@ -21,6 +23,7 @@ class IdeasNew extends Component {
     onSubmit(values){
         // console.log(values);
         // {title: "Idea_1", body: "this is my first idea to test the submit action"}
+        this.props.createIdea(values)
     }
     render() {
         const { handleSubmit } = this.props;
@@ -70,4 +73,6 @@ export default reduxForm({
     // some config options
     validate, // same as in ES6 validate: validate;
     form: 'IdeasNewForm' //as name of the form - this name should be unique
-})(IdeasNew);
+})(
+    connect(null, { createIdea })(IdeasNew)
+)
