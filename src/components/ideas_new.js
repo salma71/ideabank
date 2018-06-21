@@ -13,12 +13,14 @@ class IdeasNew extends Component {
                 type="text"
                 {...field.input}
                 />
-                {field.meta.error}
+                {field.meta.touched ? field.meta.error : ''}
             </div>
         )
     }
     onSubmit(values){
-        console.log(values);
+        // console.log(values);
+        // {title: "Idea_1", body: "this is my first idea to test the submit action"}
+
     }
     render() {
         const { handleSubmit } = this.props;
