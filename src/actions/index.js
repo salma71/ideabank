@@ -14,8 +14,9 @@ export function fetchIdeas() {
     }
 }
 
-export function createIdea(values) {
-    const request = axios.post(`${ROOT_URL}`, values);
+export function createIdea(values, callback) {
+    const request = axios.post(`${ROOT_URL}`, values)
+    .then(() => callback());
     
     return {
         type: CREATE_IDEA,
