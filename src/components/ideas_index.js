@@ -2,7 +2,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchIdeas } from '../actions'
+import { Link } from 'react-router-dom';
+import { fetchIdeas } from '../actions';
 
 class IdeasIndex extends Component {
     componentDidMount() {
@@ -23,6 +24,11 @@ class IdeasIndex extends Component {
         // console.log(this.props.ideas)
         return(
             <div>
+                <div className="text-xs-right">
+                    <Link className="btn btn-primary" to="/ideas/new">
+                        Add Idea
+                    </Link>
+                </div>
                 <h3>Ideas</h3>
                 <ul className="list-group">
                     {this.renderIdeas()}

@@ -26,6 +26,7 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Switch>
+                    {/* most specific route at the top */}
                     <Route path="/ideas/new" component={IdeasNew} />
                     <Route path="/" component={IdeasIndex} />
                 </Switch>
