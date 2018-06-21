@@ -17,11 +17,15 @@ class IdeasNew extends Component {
             </div>
         )
     }
-
+    onSubmit(values){
+        console.log(values);
+    }
     render() {
+        const { handleSubmit } = this.props;
+
         return(
             <div>
-                <form>
+                <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                     <Field 
                     // this Field component is know how to deal with Redux form only 
                     // don't know how to show myself on the screen
