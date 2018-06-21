@@ -13,6 +13,7 @@ class IdeasNew extends Component {
                 type="text"
                 {...field.input}
                 />
+                {field.meta.error}
             </div>
         )
     }
@@ -24,13 +25,13 @@ class IdeasNew extends Component {
                     <Field 
                     // this Field component is know how to deal with Redux form only 
                     // don't know how to show myself on the screen
-                    label="Title:"
+                    label="Idea Title:"
                     name="title" //what piece of state the user want to create
                     component={this.renderField} //takes fun to display the component - help Field to 
                     // show himself on the screen
                     />
                     <Field 
-                    label="Body:"
+                    label="Idea Body:"
                     name="body"
                     component={this.renderField}
                     />
@@ -40,7 +41,20 @@ class IdeasNew extends Component {
     }
 }
 
+function validate(values) {
+    // console.log(values) -> {title: 'dfhajszhf', body: 'sjhlkjsdfh'}
+    const errors = {}
+    if (!values.title || values.title.length < 3) {
+        errors.title = "Title can't be blank!";
+    }
+    if (!values.body) {
+        errors.body = "Body can't be blank!"
+    }
+    return errors;
+}
+
 export default reduxForm({
     // some config options
+    validate, // same as in ES6 validate: validate;
     form: 'IdeasNewForm' //as name of the form - this name should be unique
 })(IdeasNew);
