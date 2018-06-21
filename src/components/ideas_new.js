@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form'  // similar to connect helper
+import { Link } from 'react-router-dom';
 
 class IdeasNew extends Component {
     renderField(field) {
@@ -20,7 +21,6 @@ class IdeasNew extends Component {
     onSubmit(values){
         // console.log(values);
         // {title: "Idea_1", body: "this is my first idea to test the submit action"}
-
     }
     render() {
         const { handleSubmit } = this.props;
@@ -45,8 +45,9 @@ class IdeasNew extends Component {
                     type="submit" 
                     className="btn btn-primary"
                     >
-                    save
+                    Save
                     </button>
+                    <Link to="/" className="btn btn-danger">Cancel</Link>
                 </form>
             </div>
         )
