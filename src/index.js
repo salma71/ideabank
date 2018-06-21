@@ -9,6 +9,9 @@ import promise from 'redux-promise';
 
 import './index.css';
 import IdeasIndex from './components/ideas_index'
+import IdeasNew from './components/ideas_new';
+
+
 // import App from './App';
 import reducers from './reducers'
 
@@ -23,6 +26,7 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Route path="/" component={IdeasIndex} />
+                <Route path="/ideas/new" component={IdeasNew} />
             </div>
         </BrowserRouter>
     </Provider>
