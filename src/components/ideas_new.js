@@ -6,8 +6,10 @@ class IdeasNew extends Component {
         // return some amount of JSX
         // this field argument have some props and eventhandlers we should be able to wire it up
         return (
-            <div>
+            <div className="form-group">
+                <label>Title</label>
                 <input 
+                className="form-control"
                 type="text"
                 {...field.input}
                 />
