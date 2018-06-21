@@ -35,6 +35,12 @@ class IdeasNew extends Component {
                     name="body"
                     component={this.renderField}
                     />
+                    <button 
+                    type="submit" 
+                    className="btn btn-primary"
+                    >
+                    save
+                    </button>
                 </form>
             </div>
         )
