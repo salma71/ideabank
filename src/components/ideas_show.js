@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchIdea } from '../actions';
 
 class IdeasShow extends Component {
@@ -20,6 +21,7 @@ class IdeasShow extends Component {
                 {/* Ideas show page */}
                 <h3>{idea.title}</h3>
                 <p>{idea.body}</p>
+                <Link to="/ideas" className="btn btn-primary">Back</Link>
             </div>
         )
     }

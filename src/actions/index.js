@@ -7,7 +7,7 @@ export const FETCH_IDEA = 'fetch_idea'
 const ROOT_URL = `http://0.0.0.0:3000/api/v1`;
 
 export function fetchIdeas() {
-    const request = axios.get(`${ROOT_URL}`);
+    const request = axios.get(`${ROOT_URL}/ideas`);
     
     return {
         type: FETCH_IDEAS,
@@ -16,7 +16,7 @@ export function fetchIdeas() {
 }
 
 export function createIdea(values, callback) {
-    const request = axios.post(`${ROOT_URL}`, values)
+    const request = axios.post(`${ROOT_URL}/ideas`, values)
     .then(() => callback());
     
     return {
