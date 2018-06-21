@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { fetchIdea } from '../actions';
 
 class IdeasShow extends Component {
+    componentDidMount() {
+        const { id } = this.props.match.params;
+        this.props.fetchIdea(id);
+    }
+
     render() {
+        const { idea } = this.props;
         return (
             <div>
-                Ideas show page
+                {/* Ideas show page */}
+                <h3>{idea.title}</h3>
+                <p>{idea.body}</p>
             </div>
         )
     }
 }
 
-export default IdeasShow;
+function mapStateToProps({ ideas }, ownProps) {
+    return { idea: ideas[ownProps.match.params.id] }
+}
+
+export default connect(mapStateToProps, { fetchIdea })(IdeasShow);
