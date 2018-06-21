@@ -10,6 +10,11 @@ class IdeasShow extends Component {
 
     render() {
         const { idea } = this.props;
+
+        if (!idea) {
+            return <div>Loading!...</div>
+        }
+
         return (
             <div>
                 {/* Ideas show page */}
@@ -20,8 +25,9 @@ class IdeasShow extends Component {
     }
 }
 
-function mapStateToProps({ ideas }, ownProps) {
-    return { idea: ideas[ownProps.match.params.id] }
+function mapStateToProps({ideas}, ownProps) {
+    // return {posts}
+    return {idea: ideas[ownProps.match.params.id]}
 }
 
-export default connect(mapStateToProps, { fetchIdea })(IdeasShow);
+export default connect(mapStateToProps, {fetchIdea})(IdeasShow);
