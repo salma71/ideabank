@@ -18,6 +18,7 @@ import IdeasEdit from './components/ideas_edit'
 import reducers from './reducers'
 
 import registerServiceWorker from './registerServiceWorker';
+import MyFooter from './components/footer';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore)
 
@@ -35,6 +36,7 @@ ReactDOM.render(
                     {/* <Route path="/ideas/:id/edit" component={IdeaEdit} /> */}
                     <Route path="/" component={IdeasIndex} />
                 </Switch>
+                <MyFooter />
             </div>
         </BrowserRouter>
     </Provider>

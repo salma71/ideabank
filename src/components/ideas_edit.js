@@ -29,9 +29,10 @@ class IdeasEdit extends Component {
         console.log(values);
     //     // const { id } = this.props.match.params;
 
-    //     this.props.patchIdea(values, () => {
-    //         this.props.history.push(`/ideas`)
-    //     })
+        this.props.patchIdea(values)
+        //     , () => {
+        //     this.props.history.push('/')
+        // })
     }
     render() {
         const { handleSubmit } = this.props;
@@ -58,7 +59,7 @@ class IdeasEdit extends Component {
                     >
                         Edit
                     </button>
-                    <Link to="/" className="btn btn-danger">Cancel</Link>
+                    <Link to="/" className="btn btn-danger">Back to ideas list</Link>
                 </form>
             </div>
         )
