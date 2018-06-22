@@ -47,7 +47,8 @@ export function deleteIdea(id, callback) {
 }
 
 export function patchIdea(id, callback) {
-    const request = axios.put(`${ROOT_URL}/ideas/${id}`);
+    const request = axios.put(`${ROOT_URL}/ideas/${id}`)
+    .then(() => callback)
     
     return {
         type: PATCH_IDEA,

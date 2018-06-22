@@ -19,7 +19,7 @@ class IdeasShow extends Component {
     onEditClick() {
         const { id } = this.props.match.params;
         this.props.patchIdea(id, () => {
-            this.props.history.push(`/ideas/${id}`)
+            this.props.history.push(`/ideas/${id}/edit`)
         })
     }
 
@@ -32,7 +32,7 @@ class IdeasShow extends Component {
 
         return (
             <div>
-                {/* Ideas show page */}
+                <h2>Ideas show page</h2>
                 <h3>{idea.title}</h3>
                 <p>{idea.body}</p>
                 <Link to="/ideas" className="btn btn-primary">Back</Link>
@@ -42,13 +42,7 @@ class IdeasShow extends Component {
                 >
                     Delete
                 </button>
-                {/* <Link to={`/ideas/${id}/edit`} className="btn btn-secondary">Edit</Link> */}
-                <button 
-                className="btn btn-secondary pull-xs-right"
-                onClick={this.onEditClick.bind(this)}
-                >
-                    Edit
-                </button>
+                <Link to={`/ideas/${idea.id}/edit`} className="btn btn-secondary">Edit</Link>
             </div>
         )
     }

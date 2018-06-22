@@ -29,8 +29,8 @@ ReactDOM.render(
             <div>
                 <Switch>
                     {/* most specific route at the top */}
+                    <Route path="/ideas/:id/edit" component={IdeasEdit} />                    
                     <Route path="/ideas/new" component={IdeasNew} />
-                    <Route path="/ideas/:id" component={IdeasEdit} />                    
                     <Route path="/ideas/:id" component={IdeasShow} />
                     {/* <Route path="/ideas/:id/edit" component={IdeaEdit} /> */}
                     <Route path="/" component={IdeasIndex} />
