@@ -11,7 +11,7 @@ export default function (state = {}, action) {
             return { ...state, [action.payload.data.id]: action.payload.data}
         case FETCH_IDEAS:
             return _.mapKeys(action.payload.data, 'id')
-            
+
         default:
             return state;
     }

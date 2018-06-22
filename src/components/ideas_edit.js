@@ -6,12 +6,16 @@ import { patchIdea } from '../actions';
 
 
 class IdeasEdit extends Component {
+    componentDidMount() {
+        const { id } = this.props.match.params;
+        this.props.patchIdea(id);
+    }
+
     renderField(field) {
-        // return some amount of JSX
-        // this field argument have some props and eventhandlers we should be able to wire it up
+
         return (
             <div className="form-group">
-                {/* <label>{field.label}</label> */}
+                <label>{field.label}</label>
                 <input
                     className="form-control"
                     type="text"
@@ -23,14 +27,15 @@ class IdeasEdit extends Component {
     }
     onSubmit(values) {
         console.log(values);
+    //     // const { id } = this.props.match.params;
 
-        this.props.patchIdea(values, () => {
-            this.props.history.push('/')
-        })
+    //     this.props.patchIdea(values, () => {
+    //         this.props.history.push(`/ideas`)
+    //     })
     }
     render() {
         const { handleSubmit } = this.props;
-        console.log({handleSubmit})
+        // console.log(handleSubmit)
 
         return (
             <div>
