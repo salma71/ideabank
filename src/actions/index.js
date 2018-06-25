@@ -46,10 +46,10 @@ export function deleteIdea(id, callback) {
     }
 }
 
-export function patchIdea(id, values) {
+export function patchIdea(id, values, callback) {
     const request = axios.put(`${ROOT_URL}/ideas/${id}`, values)
     // console.log(request)
-    // .then(() => callback)
+    .then(() => callback)
     
     return {
         type: PATCH_IDEA,

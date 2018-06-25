@@ -16,12 +16,12 @@ class IdeasShow extends Component {
         })
     }
 
-    onEditClick() {
-        const { id } = this.props.match.params;
-        this.props.patchIdea(id, () => {
-            this.props.history.push(`/ideas/${id}/edit`)
-        })
-    }
+    // onEditClick() {
+    //     const { id } = this.props.match.params;
+    //     this.props.patchIdea(id, () => {
+    //         this.props.history.push(`/ideas/${id}/edit`)
+    //     })
+    // }
 
     render() {
         const { idea } = this.props;
