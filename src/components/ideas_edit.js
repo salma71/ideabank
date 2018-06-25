@@ -45,6 +45,7 @@ class IdeasEdit extends Component {
         console.log(values);
         const { id } = this.props.match.params;
         this.props.patchIdea(id, () => {
+            console.log(this.props)
             this.props.history.push(`/ideas/${id}`)
         })
 
@@ -106,7 +107,6 @@ export default reduxForm({
     // some config options
     validate, // same as in ES6 validate: validate;
     form: 'IdeasEditForm', //as name of the form - this name should be unique
-    // fields
 })(
     connect(null, { patchIdea })(IdeasEdit)
 )
