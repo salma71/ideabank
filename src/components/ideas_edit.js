@@ -96,12 +96,6 @@ function validate(values) {
     }
     return errors;
 }
-// IdeasEdit.propTypes = {
-//     fields: PropTypes.object.isRequired,
-//     handleSubmit: PropTypes.func.isRequired,
-//     load: PropTypes.func.isRequired,
-//     submitting: PropTypes.bool.isRequired
-// }
 
 export default reduxForm({
     // some config options
@@ -110,20 +104,4 @@ export default reduxForm({
 })(
     connect(null, { patchIdea })(IdeasEdit)
 )
-// // export default connect(null, {
-// //     validate,
-// //     handleSubmit: IdeasEditForm => change('IdeasEdit', 'title')
-// // })(IdeasEdit)
-
-// export default reduxForm({
-//     // some config options
-//     validate, // same as in ES6 validate: validate;
-//     form: 'IdeasEditForm', //as name of the form - this name should be unique
-//     fields
-// },
-// state => ({
-//     initialValues: fetchIdea
-// }),
-// {state: patchIdea}
-// )(IdeasEdit) 
  

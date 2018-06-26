@@ -19,7 +19,10 @@ export function fetchIdeas() {
 
 export function createIdea(values, callback) {
     const request = axios.post(`${ROOT_URL}/ideas`, values)
-    .then(() => callback());
+    .then((res) => {
+        callback()
+        return res;
+    });
     
     return {
         type: CREATE_IDEA,
@@ -38,7 +41,10 @@ export function fetchIdea(id) {
 
 export function deleteIdea(id, callback) {
     const request = axios.delete(`${ROOT_URL}/ideas/${id}`)
-    .then(() => callback());
+    .then((res) => {
+        callback()
+        return res;
+    });
     
     return {
         type: DELETE_IDEA,
@@ -49,7 +55,10 @@ export function deleteIdea(id, callback) {
 export function patchIdea(id, values, callback) {
     const request = axios.put(`${ROOT_URL}/ideas/${id}`, values)
     // console.log(request)
-    .then(() => callback)
+        .then((res) => {
+            callback()
+            return res;
+        });
     
     return {
         type: PATCH_IDEA,
