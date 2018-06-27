@@ -19,6 +19,7 @@ import reducers from './reducers'
 
 import registerServiceWorker from './registerServiceWorker';
 import MyFooter from './components/footer';
+import About from './components/about'
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore)
 
@@ -28,6 +29,7 @@ ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
         <BrowserRouter>
             <div>
+                <About />
                 {/* <Ideasshow /> */}
                 <Switch>
                     
@@ -35,7 +37,6 @@ ReactDOM.render(
                     <Route path="/ideas/:id/edit" component={IdeasEdit} />                  
                     <Route path="/ideas/new" component={IdeasNew} />
                     <Route path="/ideas/:id" component={IdeasShow} />
-                    {/* <Route path="/ideas/:id/edit" component={IdeaEdit} /> */}
                     <Route path="/" component={IdeasIndex} />
                 </Switch>
                 <MyFooter />
