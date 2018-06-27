@@ -51,18 +51,3 @@ export function deleteIdea(id, callback) {
         payload: id
     }
 }
-
-export function patchIdea(id, values, callback) {
-    const request = axios.patch(`${ROOT_URL}/ideas/${id}`, values)
-        .then((res) => {
-            // console.log('request:', res)
-
-            callback()
-            return res;
-        });
-    
-    return {
-        type: PATCH_IDEA,
-        payload: request
-    }
-}

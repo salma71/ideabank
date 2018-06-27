@@ -11,7 +11,6 @@ import './index.css';
 import IdeasIndex from './components/ideas_index'
 import IdeasNew from './components/ideas_new';
 import IdeasShow from './components/ideas_show'
-import IdeasEdit from './components/ideas_edit'
 
 
 // import App from './App';
@@ -34,7 +33,6 @@ ReactDOM.render(
                 <Switch>
                     
                     {/* most specific route at the top */}
-                    <Route path="/ideas/:id/edit" component={IdeasEdit} />                  
                     <Route path="/ideas/new" component={IdeasNew} />
                     <Route path="/ideas/:id" component={IdeasShow} />
                     <Route path="/" component={IdeasIndex} />

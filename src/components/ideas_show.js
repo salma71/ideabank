@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchIdea, deleteIdea, patchIdea} from '../actions';
+import { fetchIdea, deleteIdea } from '../actions';
 
 class IdeasShow extends Component {
     componentDidMount() {
@@ -42,7 +42,6 @@ class IdeasShow extends Component {
                 >
                     Delete
                 </button>
-                <Link to={`/ideas/${idea.id}/edit`} className="btn btn-secondary">Edit</Link>
             </div>
         )
     }
@@ -53,4 +52,4 @@ function mapStateToProps({ideas}, ownProps) {
     return {idea: ideas[ownProps.match.params.id]}
 }
 
-export default connect(mapStateToProps, {fetchIdea, deleteIdea, patchIdea})(IdeasShow);
+export default connect(mapStateToProps, {fetchIdea, deleteIdea})(IdeasShow);

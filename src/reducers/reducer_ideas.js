@@ -14,13 +14,6 @@ export default function (state = {}, action) {
         case FETCH_IDEAS:
             return _.mapKeys(action.payload.data, 'id')
 
-        case PATCH_IDEA:
-            return { ...state, [action.payload.data.id]: action.payload.data }
-        // const idea = action.payload.data;
-        // console.log(idea)
-        // const newState = { ...state }; //take all the existing ideas and put them in that obj
-        // newState[idea.title] = idea;
-        // return newState
         default:
             return state;
     }
