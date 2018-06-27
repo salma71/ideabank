@@ -4,7 +4,6 @@ export const FETCH_IDEAS = 'fetch_ideas'
 export const CREATE_IDEA = 'create_idea'
 export const FETCH_IDEA = 'fetch_idea'
 export const DELETE_IDEA = 'delete_idea';
-export const PATCH_IDEA = 'patch_idea'
 
 const ROOT_URL = `http://0.0.0.0:3000/api/v1`;
 
@@ -49,20 +48,5 @@ export function deleteIdea(id, callback) {
     return {
         type: DELETE_IDEA,
         payload: id
-    }
-}
-
-export function patchIdea(id, values, callback) {
-    const request = axios.patch(`${ROOT_URL}/ideas/${id}`, values)
-        .then((res) => {
-            // console.log('request:', res)
-
-            callback()
-            return res;
-        });
-    
-    return {
-        type: PATCH_IDEA,
-        payload: request
     }
 }

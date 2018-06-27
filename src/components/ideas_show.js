@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchIdea, deleteIdea, patchIdea} from '../actions';
+import { fetchIdea, deleteIdea} from '../actions';
 
 class IdeasShow extends Component {
     componentDidMount() {
@@ -15,13 +15,6 @@ class IdeasShow extends Component {
             this.props.history.push('/')
         })
     }
-
-    // onEditClick() {
-    //     const { id } = this.props.match.params;
-    //     this.props.patchIdea(id, () => {
-    //         this.props.history.push(`/ideas/${id}/edit`)
-    //     })
-    // }
 
     render() {
         const { idea } = this.props;
@@ -42,15 +35,13 @@ class IdeasShow extends Component {
                 >
                     Delete
                 </button>
-                <Link to={`/ideas/${idea.id}/edit`} className="btn btn-secondary">Edit</Link>
             </div>
         )
     }
 }
 
 function mapStateToProps({ideas}, ownProps) {
-    // return {posts}
     return {idea: ideas[ownProps.match.params.id]}
 }
 
-export default connect(mapStateToProps, {fetchIdea, deleteIdea, patchIdea})(IdeasShow);
+export default connect(mapStateToProps, {fetchIdea, deleteIdea})(IdeasShow);
