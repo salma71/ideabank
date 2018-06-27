@@ -28,9 +28,11 @@ ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
         <BrowserRouter>
             <div>
+                {/* <Ideasshow /> */}
                 <Switch>
+                    
                     {/* most specific route at the top */}
-                    <Route path="/ideas/:id/edit" component={IdeasEdit} />                    
+                    <Route path="/ideas/:id/edit" component={IdeasEdit} />                  
                     <Route path="/ideas/new" component={IdeasNew} />
                     <Route path="/ideas/:id" component={IdeasShow} />
                     {/* <Route path="/ideas/:id/edit" component={IdeaEdit} /> */}

@@ -40,7 +40,7 @@ export function fetchIdea(id) {
 }
 
 export function deleteIdea(id, callback) {
-    const request = axios.delete(`${ROOT_URL}/ideas/${id}`)
+   axios.delete(`${ROOT_URL}/ideas/${id}`)
     .then((res) => {
         callback()
         return res;
@@ -53,9 +53,10 @@ export function deleteIdea(id, callback) {
 }
 
 export function patchIdea(id, values, callback) {
-    const request = axios.put(`${ROOT_URL}/ideas/${id}`, values)
-    // console.log(request)
+    const request = axios.patch(`${ROOT_URL}/ideas/${id}`, values)
         .then((res) => {
+            // console.log('request:', res)
+
             callback()
             return res;
         });

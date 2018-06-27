@@ -44,8 +44,9 @@ class IdeasEdit extends Component {
     onSubmit(values) {
         console.log(values);
         const { id } = this.props.match.params;
+        // debugger;
         this.props.patchIdea(id, () => {
-            console.log(this.props)
+            // console.log(this.props)
             this.props.history.push(`/ideas/${id}`)
         })
 
@@ -104,4 +105,3 @@ export default reduxForm({
 })(
     connect(null, { patchIdea })(IdeasEdit)
 )
- 
