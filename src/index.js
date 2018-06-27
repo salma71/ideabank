@@ -8,12 +8,12 @@ import promise from 'redux-promise';
 
 
 import './index.css';
-import IdeasIndex from './components/ideas_index'
+// import IdeasIndex from './components/ideas_index'
 import IdeasNew from './components/ideas_new';
 import IdeasShow from './components/ideas_show'
 
 
-// import App from './App';
+import App from './App';
 import reducers from './reducers'
 
 import registerServiceWorker from './registerServiceWorker';
@@ -23,21 +23,22 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore)
 
 
 ReactDOM.render(
-    // <App />
+    <div>
     <Provider store={createStoreWithMiddleware(reducers)}>
         <BrowserRouter>
             <div>
                 <About />
+                <App />
                 <Switch>
-                    
                     {/* most specific route at the top */}
                     <Route path="/ideas/new" component={IdeasNew} />
                     <Route path="/ideas/:id" component={IdeasShow} />
-                    <Route path="/" component={IdeasIndex} />
+                    {/* <Route path="/" component={IdeasIndex} /> */}
                 </Switch>
                 <MyFooter />
             </div>
         </BrowserRouter>
     </Provider>
+    </div>
         ,document.getElementById('root'));
 registerServiceWorker();

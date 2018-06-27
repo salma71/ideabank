@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import IdeasList from './components/ideas_index'
+import IdeasIndex from './components/ideas_index'
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
         <div className="App-header">
           <h1>Ideas List</h1>
         </div>
-        <IdeasList />
+        <IdeasIndex />
       </div>
     );
   }
