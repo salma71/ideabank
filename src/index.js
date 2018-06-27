@@ -18,7 +18,7 @@ import reducers from './reducers'
 
 import registerServiceWorker from './registerServiceWorker';
 import MyFooter from './components/footer';
-
+import About from './components/about'
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore)
 
 
@@ -27,6 +27,7 @@ ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
         <BrowserRouter>
             <div>
+                <About />
                 <Switch>
                     
                     {/* most specific route at the top */}
