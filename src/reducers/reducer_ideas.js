@@ -1,6 +1,6 @@
 
 import _ from 'lodash';
-import { FETCH_IDEAS, FETCH_IDEA, PATCH_IDEA } from '../actions'
+import { FETCH_IDEAS, FETCH_IDEA } from '../actions'
 
 export default function (state = {}, action) {
     // console.log(action.payload)

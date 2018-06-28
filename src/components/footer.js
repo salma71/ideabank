@@ -16,4 +16,5 @@ export default class MyFooter extends Component {
     }
 }
 
-// ReactDom.render(<MyFooter />, document.getElementById('root'))
+
+

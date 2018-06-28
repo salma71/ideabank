@@ -1,0 +1,13 @@
+    sort by title
+    
+    // renderIdeas() {
+    //     return _.sortBy(this.props.ideas, 'title').map((idea) => {
+    //         return(
+    //             <li className="list-group-item" key={idea.id}>
+    //             <Link to={`/ideas/${idea.id}`}>
+    //                 {idea.title} <br />
+    //             </Link>
+    //              </li>
+    //         )
+    //     })
+    // }

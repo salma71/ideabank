@@ -17,12 +17,14 @@ class IdeasIndex extends Component {
             return (
                 <li className="list-group-item" key={idea.id}>
                 <Link to={`/ideas/${idea.id}`}>
-                    {idea.title}
+                    {idea.title} <br />
                 </Link>
+                    {/* {idea.created_at} */}
                 </li>
             )
         })
     }
+
     render() {
         // console.log(this.props.ideas)
         return(

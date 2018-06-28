@@ -4,7 +4,6 @@ export const FETCH_IDEAS = 'fetch_ideas'
 export const CREATE_IDEA = 'create_idea'
 export const FETCH_IDEA = 'fetch_idea'
 export const DELETE_IDEA = 'delete_idea';
-export const PATCH_IDEA = 'patch_idea'
 
 const ROOT_URL = `http://0.0.0.0:3000/api/v1`;
 
