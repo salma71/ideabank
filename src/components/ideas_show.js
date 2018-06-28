@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchIdea, deleteIdea } from '../actions';
+import BackButton from './backButton';
 
 class IdeasShow extends Component {
     componentDidMount() {
@@ -16,13 +17,6 @@ class IdeasShow extends Component {
         })
     }
 
-    // onEditClick() {
-    //     const { id } = this.props.match.params;
-    //     this.props.patchIdea(id, () => {
-    //         this.props.history.push(`/ideas/${id}/edit`)
-    //     })
-    // }
-
     render() {
         const { idea } = this.props;
 
@@ -35,20 +29,22 @@ class IdeasShow extends Component {
                 <h2>Ideas show page</h2>
                 <h3>{idea.title}</h3>
                 <p>{idea.body}</p>
-                <Link to="/ideas" className="btn btn-primary">Back</Link>
+                <div className="text-xs-right">
+                <BackButton />
                 <button 
                 className="btn btn-danger pull-xs-right"
                 onClick={this.onDeleteClick.bind(this)}
                 >
                     Delete
                 </button>
+                </div>
             </div>
         )
     }
 }
 
 function mapStateToProps({ideas}, ownProps) {
-    // return {posts}
+
     return {idea: ideas[ownProps.match.params.id]}
 }
 
