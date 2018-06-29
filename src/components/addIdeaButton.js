@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
 // import ReactDom from 'react-dom';
-export default class AddIdeaButton extends Component {
-    render() {
-        return (
+const AddIdeaButton = () =>
     <div className="text-xs-right">
         <Link className="btn btn-primary" to="/ideas/new">
             Add Idea
         </Link>
     </div>
-        )
-    }
-}
+
+export default AddIdeaButton;
+// convert to stateless

@@ -9,7 +9,7 @@ const ROOT_URL = `http://0.0.0.0:3000/api/v1`;
 
 export function fetchIdeas() {
     const request = axios.get(`${ROOT_URL}/ideas`);
-    
+    // console.log('Request:', request)
     return {
         type: FETCH_IDEAS,
         payload: request
@@ -19,6 +19,7 @@ export function fetchIdeas() {
 export function createIdea(values, callback) {
     const request = axios.post(`${ROOT_URL}/ideas`, values)
     .then((res) => {
+        console.log("B")
         callback()
         return res;
     });
@@ -27,6 +28,8 @@ export function createIdea(values, callback) {
         type: CREATE_IDEA,
         payload: request
     }
+
+    console.log('D')
 }
 
 export function fetchIdea(id) {
@@ -50,3 +53,9 @@ export function deleteIdea(id, callback) {
         payload: id
     }
 }
+
+
+// update all to use dispatch action
+// return dispatch {
+// async code here
+//}

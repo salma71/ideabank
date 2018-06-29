@@ -8,9 +8,9 @@ import promise from 'redux-promise';
 
 
 import './index.css';
-import IdeasIndex from './components/ideas_index'
-import IdeasNew from './components/ideas_new';
-import IdeasShow from './components/ideas_show'
+import IdeasIndex from './components/ideasIndex'
+import IdeasNew from './components/ideasNew';
+import IdeasShow from './components/ideasShow'
 
 
 // import App from './App';

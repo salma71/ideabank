@@ -11,6 +11,7 @@ export default function (state = {}, action) {
             // newState[idea.id] = idea;
             // return newState;
             return { ...state, [action.payload.data.id]: action.payload.data }
+        // case Delete_ideas:
         case FETCH_IDEAS:
             return _.mapKeys(action.payload.data, 'id')
 
@@ -18,3 +19,6 @@ export default function (state = {}, action) {
             return state;
     }
 }
+
+// add case for delete ideas
+// make sure items are being added and deleted

@@ -7,9 +7,10 @@ import { fetchIdeas } from '../actions';
 import AddIdeaButton from './addIdeaButton';
 
 class IdeasIndex extends Component {
-    componentDidMount() {
-        this.props.fetchIdeas()
-    }
+    // componentDidMount() {
+    //     this.props.fetchIdeas()
+    // }
+    // make sure you're not forcing the api call every refresh
     // this fun will run immed after this component is rendered
     // which go and fetch some data or initiate one time loading process
     renderIdeas() {
@@ -26,7 +27,7 @@ class IdeasIndex extends Component {
     }
 
     render() {
-        // console.log(this.props.ideas)
+        // console.log('the props',this.props.ideas)
         return(
             <div>
                 <AddIdeaButton />
@@ -42,4 +43,3 @@ function mapStateToProps(state) {
     return {ideas: state.ideas}
 }
 export default connect(mapStateToProps, { fetchIdeas })(IdeasIndex);
-// 
