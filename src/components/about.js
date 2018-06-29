@@ -20,4 +20,4 @@ const About = () =>
             </div>
     
 export default About;
-//convert to stateless
+//convert to stateless - done

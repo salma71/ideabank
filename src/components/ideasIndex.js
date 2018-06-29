@@ -7,10 +7,11 @@ import { fetchIdeas } from '../actions';
 import AddIdeaButton from './addIdeaButton';
 
 class IdeasIndex extends Component {
-    // componentDidMount() {
-    //     this.props.fetchIdeas()
-    // }
-    // make sure you're not forcing the api call every refresh
+    componentDidMount() { 
+        this.props.fetchIdeas()
+    }
+
+
     // this fun will run immed after this component is rendered
     // which go and fetch some data or initiate one time loading process
     renderIdeas() {

@@ -9,4 +9,4 @@ const AddIdeaButton = () =>
     </div>
 
 export default AddIdeaButton;
-// convert to stateless
+// convert to stateless - done

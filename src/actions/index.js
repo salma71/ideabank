@@ -19,7 +19,6 @@ export function fetchIdeas() {
 export function createIdea(values, callback) {
     const request = axios.post(`${ROOT_URL}/ideas`, values)
     .then((res) => {
-        console.log("B")
         callback()
         return res;
     });
@@ -28,8 +27,6 @@ export function createIdea(values, callback) {
         type: CREATE_IDEA,
         payload: request
     }
-
-    console.log('D')
 }
 
 export function fetchIdea(id) {
@@ -59,3 +56,21 @@ export function deleteIdea(id, callback) {
 // return dispatch {
 // async code here
 //}
+// export const setIdeas = ideas => {
+//     return {
+//         type: 'FETCH_IDEAS',
+//         ideas
+//     }
+// }
+
+// export const fetchIdeas = () => {
+//     return dispatch => {
+//         return fetch(`${ROOT_URL}/ideas`, {
+//             method: 'GET',
+//         })
+//             .then(ideas => {
+//                 dispatch(setIdeas(ideas))
+//             })
+//             .catch(error => console.log(error));
+//     }
+// }

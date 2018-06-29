@@ -5,9 +5,12 @@ import BackButton from './backButton';
 
 class IdeasShow extends Component {
     componentDidMount() {
-        const { id } = this.props.match.params;
-        this.props.fetchIdea(id);
+        if (!this.props.idea) {
+            const { id } = this.props.match.params;
+            this.props.fetchIdea(id);
     }
+}
+    // make sure you're not forcing the api call every refresh
 
     onDeleteClick(){
         const { id } = this.props.match.params;
@@ -18,7 +21,6 @@ class IdeasShow extends Component {
 
     render() {
         const { idea } = this.props;
-
         if (!idea) {
             return <div>Loading!...</div>
         }

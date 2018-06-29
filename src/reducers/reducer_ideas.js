@@ -1,6 +1,6 @@
 
 import _ from 'lodash';
-import { FETCH_IDEAS, FETCH_IDEA } from '../actions'
+import { FETCH_IDEAS, FETCH_IDEA, DELETE_IDEA } from '../actions'
 
 export default function (state = {}, action) {
     // console.log(action.payload)
@@ -14,11 +14,15 @@ export default function (state = {}, action) {
         // case Delete_ideas:
         case FETCH_IDEAS:
             return _.mapKeys(action.payload.data, 'id')
+            // return { ...state, ideas: action.ideas }
+
+        case DELETE_IDEA:
+            return _.omit(state, action.payload)
 
         default:
             return state;
     }
 }
 
-// add case for delete ideas
+// add case for delete ideas - done
 // make sure items are being added and deleted
