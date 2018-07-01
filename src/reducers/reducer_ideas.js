@@ -25,4 +25,4 @@ export default function (state = {}, action) {
 }
 
 // add case for delete ideas - done
-// make sure items are being added and deleted
+// make sure items are being added and deleted - done

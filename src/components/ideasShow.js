@@ -6,6 +6,7 @@ import BackButton from './backButton';
 class IdeasShow extends Component {
     componentDidMount() {
         if (!this.props.idea) {
+            debugger;
             const { id } = this.props.match.params;
             this.props.fetchIdea(id);
     }

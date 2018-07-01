@@ -56,6 +56,8 @@ export function deleteIdea(id, callback) {
 // return dispatch {
 // async code here
 //}
+
+
 // export const setIdeas = ideas => {
 //     return {
 //         type: 'FETCH_IDEAS',

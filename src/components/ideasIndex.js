@@ -11,7 +11,6 @@ class IdeasIndex extends Component {
         this.props.fetchIdeas()
     }
 
-
     // this fun will run immed after this component is rendered
     // which go and fetch some data or initiate one time loading process
     renderIdeas() {
