@@ -6,15 +6,16 @@ import BackButton from './backButton';
 class IdeasShow extends Component {
     componentDidMount() {
         if (!this.props.idea) {
-            debugger;
+            // debugger;
             const { id } = this.props.match.params;
             this.props.fetchIdea(id);
     }
 }
     // make sure you're not forcing the api call every refresh
 
-    onDeleteClick(){
+    onDeleteClick = () => {
         const { id } = this.props.match.params;
+        // debugger;
         this.props.deleteIdea(id, () => {
             this.props.history.push('/')
         })
@@ -35,7 +36,7 @@ class IdeasShow extends Component {
                 <BackButton />
                 <button 
                 className="btn btn-danger pull-xs-right"
-                onClick={this.onDeleteClick.bind(this)}
+                onClick={this.onDeleteClick}
                 >
                     Delete
                 </button>

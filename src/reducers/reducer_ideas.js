@@ -1,16 +1,16 @@
 
 import _ from 'lodash';
-import { FETCH_IDEAS, FETCH_IDEA, DELETE_IDEA } from '../actions'
+import { FETCH_IDEAS, FETCH_IDEA, DELETE_IDEA, CREATE_IDEA } from '../actions'
 
 export default function (state = {}, action) {
     // console.log(action.payload)
     switch (action.type) {
-        case FETCH_IDEA:
+        // case FETCH_IDEA:
             // const idea = action.payload.data;
             // const newState = { ...state }; //take all the existing ideas and put them in that obj
             // newState[idea.id] = idea;
             // return newState;
-            return { ...state, [action.payload.data.id]: action.payload.data }
+            // return { ...state, [action.payload.data.id]: action.payload.data }
         // case Delete_ideas:
         case FETCH_IDEAS:
             return _.mapKeys(action.payload.data, 'id')
@@ -18,7 +18,8 @@ export default function (state = {}, action) {
 
         case DELETE_IDEA:
             return _.omit(state, action.payload)
-
+        case CREATE_IDEA:
+            return { ...state, [action.payload.data.id]: action.payload.data }
         default:
             return state;
     }

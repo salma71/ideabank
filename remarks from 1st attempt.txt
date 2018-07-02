@@ -1,0 +1,13 @@
+1. change all staleless component syntax to function synatx instead of 
+class syntax. ---> done
+
+2. Don't force the API to fetch the idea from the backend when rendering the 
+idea show page. --> done (using if statement)
+
+3. Make sure that the idea being deleted. ---> done
+
+4. add case for delete action into the reducers_idea ---> done
+
+5. make sure that the idea being added. --->done
+
+6. install redux dev tool.  ---> done
