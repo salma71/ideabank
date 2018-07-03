@@ -19,11 +19,11 @@ export default function (state = {}, action) {
         case DELETE_IDEA:
             return _.omit(state, action.payload)
         case CREATE_IDEA:
-            const idea = action.payload.data;
-            const newState = { ...state }; //take all the existing ideas and put them in that obj
-            // return newState[idea.id] = idea;
-            // return { ...state, [action.payload.data.id]: action.payload.data }
-            return newState
+            // const idea = action.payload.data;
+            // const newState = { ...state }; //take all the existing ideas and put them in that obj
+            // // return newState[idea.id] = idea;
+            return { ...state, [action.payload.data.id]: action.payload.data }
+            // return newState
         default:
             return state;
     }
