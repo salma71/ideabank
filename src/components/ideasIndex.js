@@ -7,7 +7,17 @@ import { fetchIdeas } from '../actions';
 import AddIdeaButton from './addIdeaButton';
 
 class IdeasIndex extends Component {
+    constructor(props){
+        super(props);
+        this.state = { ideas: this.state }
+        // this.setState ({ ideas })
+    }
+
+    // handleClick(e){
+    //     this.setState({ ideas: !this.state.title })
+    // }
     componentDidMount() { 
+        // this.props.setState({ ideas })
         this.props.fetchIdeas()
     }
 

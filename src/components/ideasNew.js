@@ -23,6 +23,7 @@ class IdeasNew extends Component {
     onSubmit(values){
         // console.log(values);
         // {title: "Idea_1", body: "this is my first idea to test the submit action"}
+        
         this.props.createIdea(values, () => {
             this.props.history.push('/')
         // history is a helper method provided by react router to allow programatic routing to whatever you want 
