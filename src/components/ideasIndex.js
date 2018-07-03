@@ -5,13 +5,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchIdeas } from '../actions';
 import AddIdeaButton from './addIdeaButton';
+import Likes from './likes'
 
 class IdeasIndex extends Component {
-    constructor(props){
-        super(props);
-        this.state = { ideas: this.state }
-        // this.setState ({ ideas })
-    }
+    // constructor(props){
+    //     super(props);
+    //     this.state = { ideas: this.state }
+    //     // this.setState ({ ideas })
+    // }
 
     // handleClick(e){
     //     this.setState({ ideas: !this.state.title })
@@ -29,7 +30,9 @@ class IdeasIndex extends Component {
                 <li className="list-group-item" key={idea.id}>
                 <Link to={`/ideas/${idea.id}`}>
                     {idea.title} <br />
+                        
                 </Link>
+                    <Likes />
                     {/* {idea.created_at} */}
                 </li>
             )
@@ -43,7 +46,7 @@ class IdeasIndex extends Component {
                 <AddIdeaButton />
                 <h3>Ideas</h3>
                 <ul className="list-group">
-                    {this.renderIdeas()}
+                    {this.renderIdeas()} 
                 </ul>
             </div>
         )

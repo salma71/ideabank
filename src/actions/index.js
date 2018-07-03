@@ -17,7 +17,7 @@ export function fetchIdeas() {
 }
 
 export function createIdea(values, callback) {
-    debugger;
+    // debugger;
     const request = axios.post(`${ROOT_URL}/ideas`, values)
     .then((res) => {
         callback()
