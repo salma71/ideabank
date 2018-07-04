@@ -11,3 +11,7 @@ idea show page. --> done (using if statement)
 5. make sure that the idea being added. --->done
 
 6. install redux dev tool.  ---> done
+
+Index - Like button - when pressed will increase counter for item, just focus on getting
+the counter and button to work.
+  - Then focus on presisting to the rails database.

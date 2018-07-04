@@ -8,9 +8,11 @@ import AddIdeaButton from './addIdeaButton';
 import Likes from './likes'
 
 class IdeasIndex extends Component {
+
+
     // constructor(props){
     //     super(props);
-    //     this.state = { ideas: this.state }
+    //     this.state = { ideas: null }
     //     // this.setState ({ ideas })
     // }
 
@@ -20,6 +22,9 @@ class IdeasIndex extends Component {
     componentDidMount() { 
         // this.props.setState({ ideas })
         this.props.fetchIdeas()
+        // .then((ideas) => {
+            // this.setState({ideas})
+        // })
     }
 
     // this fun will run immed after this component is rendered
@@ -41,11 +46,15 @@ class IdeasIndex extends Component {
 
     render() {
         // console.log('the props',this.props.ideas)
+        // if (!this.state.ideas) {
+        //     return <div>Loading</div>;
+        // }
         return(
             <div>
                 <AddIdeaButton />
                 <h3>Ideas</h3>
                 <ul className="list-group">
+                {/* {this.state.renderIdeas()} */}
                     {this.renderIdeas()} 
                 </ul>
             </div>

@@ -51,7 +51,12 @@ export function deleteIdea(id, callback) {
         payload: id
     }
 }
-
+export function incrementLikes(id) {
+    axios.patch(`${ROOT_URL}/ideas/${id}`)
+    .then((res) => {
+        debugger;
+    })
+}
 
 // update all to use dispatch action
 // return dispatch {

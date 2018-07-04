@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Likes extends Component {
 
@@ -11,24 +12,25 @@ class Likes extends Component {
         }
         this.updateLikes = this.updateLikes.bind(this);
     }
-    updateLikes() {
 
-        if (!this.state.updated) {
+    updateLikes() {
+        this.props.incrementLikes
+        // if (!this.state.updated) {
             this.setState((prevState) => {
                 return {
                     likes: prevState.likes + 1,
                     updated: true
                 };
             });
-        } else {
+        // } else {
 
-            this.setState((prevState) => {
-                return {
-                    likes: prevState.likes - 1,
-                    updated: false
-                };
-            });
-        }
+        //     this.setState((prevState) => {
+        //         return {
+        //             likes: prevState.likes - 1,
+        //             updated: false
+        //         };
+        //     });
+        // }
     }
 
     render() {
@@ -44,7 +46,9 @@ class Likes extends Component {
         );
     }
 }
+function mapStateToProps(){
 
-export default Likes;
+}
+export default connect(mapStateToProps)(Likes);
 
 
