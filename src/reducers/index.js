@@ -3,11 +3,13 @@ import { combineReducers } from 'redux';
 //just renaming reducer to formreducer
 import { reducer as formReducer } from 'redux-form'
 import IdeaReducer from './reducer_ideas';
+import LikeReducer from './reducer_likes'
 
 const rootReducer = combineReducers({
     // state: (state = {}) => state
     ideas: IdeaReducer,
-    form: formReducer
+    form: formReducer,
+    likes: LikeReducer
 });
 
 export default rootReducer;

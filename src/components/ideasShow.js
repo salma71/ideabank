@@ -33,13 +33,13 @@ class IdeasShow extends Component {
                 <h3>{idea.title}</h3>
                 <p>{idea.body}</p>
                 <div className="text-xs-right">
-                <BackButton />
-                <button 
-                className="btn btn-danger pull-xs-right"
-                onClick={this.onDeleteClick}
-                >
-                    Delete
-                </button>
+                    <BackButton />
+                    <button 
+                    className="btn btn-danger pull-xs-right"
+                    onClick={this.onDeleteClick}
+                    >
+                        Delete
+                    </button>
                 </div>
             </div>
         )

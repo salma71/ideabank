@@ -8,34 +8,28 @@ import AddIdeaButton from './addIdeaButton';
 import Likes from './likes'
 
 class IdeasIndex extends Component {
-
-
-    // constructor(props){
-    //     super(props);
-    //     this.state = { ideas: null }
-    //     // this.setState ({ ideas })
-    // }
-
-    // handleClick(e){
-    //     this.setState({ ideas: !this.state.title })
-    // }
-    componentDidMount() { 
-        // this.props.setState({ ideas })
-        this.props.fetchIdeas()
-        // .then((ideas) => {
-            // this.setState({ideas})
-        // })
+    constructor(props) {
+        super(props);
+        // this.state = {
+        //     // ideasindex: { 
+        //     ideas: this.props.ideas
+        //     // loading: false 
+        //     }
+        // }
+        // this.componentDidMount = this.componentDidMount.bind(this);
     }
+    componentWilMount() {
+        // if(!this.state.props)
+        this.props.actions.fetchIdeas()
+    }
+// }
 
-    // this fun will run immed after this component is rendered
-    // which go and fetch some data or initiate one time loading process
     renderIdeas() {
         return _.map(this.props.ideas, idea => {
             return (
                 <li className="list-group-item" key={idea.id}>
                 <Link to={`/ideas/${idea.id}`}>
                     {idea.title} <br />
-                        
                 </Link>
                     <Likes />
                     {/* {idea.created_at} */}
@@ -45,10 +39,6 @@ class IdeasIndex extends Component {
     }
 
     render() {
-        // console.log('the props',this.props.ideas)
-        // if (!this.state.ideas) {
-        //     return <div>Loading</div>;
-        // }
         return(
             <div>
                 <AddIdeaButton />
@@ -63,5 +53,19 @@ class IdeasIndex extends Component {
 }
 function mapStateToProps(state) {
     return {ideas: state.ideas}
+    // return { ideas: state.ideas[ownProps.match.params] }
 }
 export default connect(mapStateToProps, { fetchIdeas })(IdeasIndex);
+
+// const mapStateToProps = (state) => {
+//     return { ideasIndex: state.ideas.ideasIndex }
+// }
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         fetchIdeas: () => {
+//             dispatch(fetchIdeas()).then((response) => {
+//                 dispatch(fetchIdeasSuccess(response.payload.data));
+//             });
+//         }
+//     }
+// }

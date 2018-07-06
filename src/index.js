@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// import { Router, browserHistory } from 'react-router'
 import promise from 'redux-promise';
 
 
@@ -32,6 +33,7 @@ ReactDOM.render(
     // <App />
     <Provider store={store}>
         <BrowserRouter>
+        {/* <Router history={browserHistory}> */}
             <div>
                 <About />
                 {/* <Ideasshow /> */}
@@ -45,6 +47,7 @@ ReactDOM.render(
                 <MyFooter />
             </div>
         </BrowserRouter>
+        {/* </Router> */}
     </Provider>
         ,document.getElementById('root'));
 registerServiceWorker();

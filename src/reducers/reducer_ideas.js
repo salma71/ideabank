@@ -1,29 +1,30 @@
 
 import _ from 'lodash';
-import { FETCH_IDEAS, FETCH_IDEA, DELETE_IDEA, CREATE_IDEA } from '../actions'
+import { FETCH_IDEAS, FETCH_IDEAS_SUCCESS, DELETE_IDEA, CREATE_IDEA, INC_LIKES} from '../actions'
 
-export default function (state = {}, action) {
-    // console.log(action.payload)
+
+export default function (state = {ideasindex: {ideas: [], loading: false}}, action) {
+    let value;
+    // console.log(action.type)
     switch (action.type) {
-        // case FETCH_IDEA:
-            // const idea = action.payload.data;
-            // const newState = { ...state }; //take all the existing ideas and put them in that obj
-            // newState[idea.id] = idea;
-            // return newState;
-            // return { ...state, [action.payload.data.id]: action.payload.data }
-        // case Delete_ideas:
         case FETCH_IDEAS:
-            return _.mapKeys(action.payload.data, 'id')
-            // return { ...state, ideas: action.ideas }
-
+        // console.log(action.payload)
+            return _.mapKeys(action.payload.data, 'id') 
+            // return { ...state, ideasIndex: { ideas: [], loading: true } }; 
+        case FETCH_IDEAS_SUCCESS:// return list of posts and make loading = false
+            return { ...state, ideasIndex: { ideas: action.payload, loading: true } };
         case DELETE_IDEA:
             return _.omit(state, action.payload)
+
         case CREATE_IDEA:
-            // const idea = action.payload.data;
-            // const newState = { ...state }; //take all the existing ideas and put them in that obj
-            // // return newState[idea.id] = idea;
             return { ...state, [action.payload.data.id]: action.payload.data }
-            // return newState
+
+        case INC_LIKES:
+            value = state[action.idea.id] || 0;
+            return {
+                ...state,
+                [action.idea.id]: value + 1
+            };
         default:
             return state;
     }

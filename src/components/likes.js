@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { incrementLikes } from '../actions'
+import { reduxForm } from 'redux-form'
 
 class Likes extends Component {
 
@@ -14,23 +16,22 @@ class Likes extends Component {
     }
 
     updateLikes() {
-        this.props.incrementLikes
-        // if (!this.state.updated) {
-            this.setState((prevState) => {
-                return {
-                    likes: prevState.likes + 1,
-                    updated: true
-                };
-            });
-        // } else {
+        // debugger;
 
-        //     this.setState((prevState) => {
-        //         return {
-        //             likes: prevState.likes - 1,
-        //             updated: false
-        //         };
-        //     });
-        // }
+        // const { id } = this.props.match.params;
+        // debugger;
+        // this.props.incrementLikes(id)
+        this.setState((prevState) => {
+
+            return {
+                likes: prevState.likes + 1,
+                updated: true
+                }
+                // () => {
+                //     this.props.incrementLikes(2)
+                // }
+            })
+            
     }
 
     render() {
@@ -46,9 +47,10 @@ class Likes extends Component {
         );
     }
 }
-function mapStateToProps(){
-
-}
-export default connect(mapStateToProps)(Likes);
-
-
+// export default Likes
+export default reduxForm({
+    // some config options
+    form: 'IdeaLikeForm'
+})(
+    connect(null, { incrementLikes })(Likes)
+)

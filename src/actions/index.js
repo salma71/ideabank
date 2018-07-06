@@ -1,14 +1,33 @@
 import axios from 'axios';
 
 export const FETCH_IDEAS = 'fetch_ideas'
+export const FETCH_IDEAS_SUCCESS = 'FETCH_IDEAS_SUCCESS';
+export const FETCH_IDEAS_FAILURE = 'FETCH_IDEAS_FAILURE';
+export const RESET_IDEAS = 'RESET_IDEAS';
+
 export const CREATE_IDEA = 'create_idea'
+export const CREATE_IDEA_SUCCESS = 'CREATE_IDEA_SUCCESS';
+export const CREATE_IDEA_FAILURE = 'CREATE_IDEA_FAILURE';
+export const RESET_NEW_IDEA = 'RESET_NEW_IDEA';
+
 export const FETCH_IDEA = 'fetch_idea'
+export const FETCH_IDEA_SUCCESS = 'FETCH_IDEA_SUCCESS';
+export const FETCH_IDEA_FAILURE = 'FETCH_IDEA_FAILURE';
+export const RESET_ACTIVE_IDEA = 'RESET_ACTIVE_IDEA';
+
 export const DELETE_IDEA = 'delete_idea';
+export const DELETE_IDEA_SUCCESS = 'DELETE_IDEA_SUCCESS';
+export const DELETE_IDEA_FAILURE = 'DELETE_IDEA_FAILURE';
+export const RESET_DELETED_IDEA = 'RESET_DELETED_IDEA';
+
+export const INC_LIKES = 'INCREMENT_LIKES'
 
 const ROOT_URL = `http://0.0.0.0:3000/api/v1`;
 
 export function fetchIdeas() {
-    const request = axios.get(`${ROOT_URL}/ideas`);
+
+    const request = axios.get(`${ROOT_URL}/ideas`)
+    // .then(res => console.log(res))
     // console.log('Request:', request)
     return {
         type: FETCH_IDEAS,
@@ -52,33 +71,11 @@ export function deleteIdea(id, callback) {
     }
 }
 export function incrementLikes(id) {
-    axios.patch(`${ROOT_URL}/ideas/${id}`)
-    .then((res) => {
-        debugger;
-    })
+    const request = axios.patch(`${ROOT_URL}/ideas/${id}`)
+// debugger;
+    return {
+        type: INC_LIKES,
+        payload: request
+    }
 }
 
-// update all to use dispatch action
-// return dispatch {
-// async code here
-//}
-
-
-// export const setIdeas = ideas => {
-//     return {
-//         type: 'FETCH_IDEAS',
-//         ideas
-//     }
-// }
-
-// export const fetchIdeas = () => {
-//     return dispatch => {
-//         return fetch(`${ROOT_URL}/ideas`, {
-//             method: 'GET',
-//         })
-//             .then(ideas => {
-//                 dispatch(setIdeas(ideas))
-//             })
-//             .catch(error => console.log(error));
-//     }
-// }
