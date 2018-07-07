@@ -1,21 +1,26 @@
 import axios from 'axios';
 
-export const FETCH_IDEAS = 'fetch_ideas'
+export const FETCH_IDEAS = 'FETCH_IDEAS'
 export const FETCH_IDEAS_SUCCESS = 'FETCH_IDEAS_SUCCESS';
 export const FETCH_IDEAS_FAILURE = 'FETCH_IDEAS_FAILURE';
 export const RESET_IDEAS = 'RESET_IDEAS';
 
-export const CREATE_IDEA = 'create_idea'
+export const CREATE_IDEA = 'CREATE_IDEA'
 export const CREATE_IDEA_SUCCESS = 'CREATE_IDEA_SUCCESS';
 export const CREATE_IDEA_FAILURE = 'CREATE_IDEA_FAILURE';
 export const RESET_NEW_IDEA = 'RESET_NEW_IDEA';
 
-export const FETCH_IDEA = 'fetch_idea'
+export const VALIDATE_IDEA_FIELDS = 'VALIDATE_IDEA_FIELDS';
+export const VALIDATE_IDEA_FIELDS_SUCCESS = 'VALIDATE_IDEA_FIELDS_SUCCESS';
+export const VALIDATE_IDEA_FIELDS_FAILURE = 'VALIDATE_IDEA_FIELDS_FAILURE';
+export const RESET_IDEA_FIELDS = 'RESET_IDEA_FIELDS';
+
+export const FETCH_IDEA = 'FETCH_IDEA'
 export const FETCH_IDEA_SUCCESS = 'FETCH_IDEA_SUCCESS';
 export const FETCH_IDEA_FAILURE = 'FETCH_IDEA_FAILURE';
 export const RESET_ACTIVE_IDEA = 'RESET_ACTIVE_IDEA';
 
-export const DELETE_IDEA = 'delete_idea';
+export const DELETE_IDEA = 'DELETE_IDEA';
 export const DELETE_IDEA_SUCCESS = 'DELETE_IDEA_SUCCESS';
 export const DELETE_IDEA_FAILURE = 'DELETE_IDEA_FAILURE';
 export const RESET_DELETED_IDEA = 'RESET_DELETED_IDEA';
@@ -34,10 +39,21 @@ export function fetchIdeas() {
         payload: request
     }
 }
-
-export function createIdea(values, callback) {
+export function fetchIdeasSuccess(ideas) {
+    return {
+        type: FETCH_IDEAS_SUCCESS,
+        payload: ideas
+    };
+}
+export function fetchIdeasFailure(error) {
+    return {
+        type: FETCH_IDEAS_FAILURE,
+        payload: error
+    };
+}
+export function createIdea(props, callback) {
     // debugger;
-    const request = axios.post(`${ROOT_URL}/ideas`, values)
+    const request = axios.post(`${ROOT_URL}/ideas`, props)
     .then((res) => {
         callback()
         return res;
@@ -48,7 +64,12 @@ export function createIdea(values, callback) {
         payload: request
     }
 }
-
+export function createIdeaSuccess(newIdea) {
+    return {
+        type: CREATE_IDEA_SUCCESS,
+        payload: newIdea
+    };
+}
 export function fetchIdea(id) {
     const request = axios.get(`${ROOT_URL}/ideas/${id}`);
     
@@ -57,7 +78,25 @@ export function fetchIdea(id) {
         payload: request
     }
 }
+export function fetchIdeaSuccess(activeIdea) {
+    return {
+        type: FETCH_IDEA_SUCCESS,
+        payload: activeIdea
+    };
+}
+export function createIdeaFailure(error) {
+    return {
+        type: CREATE_IDEA_FAILURE,
+        payload: error
+    };
+}
 
+export function resetNewIdea() {
+    return {
+        type: RESET_NEW_IDEA
+    }
+}
+;
 export function deleteIdea(id, callback) {
    axios.delete(`${ROOT_URL}/ideas/${id}`)
     .then((res) => {

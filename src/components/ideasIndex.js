@@ -3,69 +3,61 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchIdeas } from '../actions';
+import { fetchIdeas, fetchIdeasSuccess } from '../actions';
 import AddIdeaButton from './addIdeaButton';
 import Likes from './likes'
 
 class IdeasIndex extends Component {
-    constructor(props) {
-        super(props);
-        // this.state = {
-        //     // ideasindex: { 
-        //     ideas: this.props.ideas
-        //     // loading: false 
-        //     }
-        // }
-        // this.componentDidMount = this.componentDidMount.bind(this);
-    }
     componentWilMount() {
         // if(!this.state.props)
-        this.props.actions.fetchIdeas()
+        this.props.fetchIdeas()
     }
 // }
 
-    renderIdeas() {
-        return _.map(this.props.ideas, idea => {
+    renderIdeas(ideas) {
+        return ideas.map((idea) => {
             return (
                 <li className="list-group-item" key={idea.id}>
-                <Link to={`/ideas/${idea.id}`}>
-                    {idea.title} <br />
-                </Link>
-                    <Likes />
-                    {/* {idea.created_at} */}
+                    <Link style={{ color: 'black' }} to={"ideas/" + idea.id}>
+                        <h3 className="list-group-item-heading">{idea.title}</h3>
+                    </Link>
                 </li>
-            )
-        })
+            );
+        });
     }
 
     render() {
+        const { ideas, loading} = this.props.ideasIndex;
+        console.log(ideas)
+        // if (loading) {
+        //     return <div className="container"><h1>Ideas</h1><h3>Loading...</h3></div>
+        // } 
         return(
             <div>
                 <AddIdeaButton />
                 <h3>Ideas</h3>
                 <ul className="list-group">
                 {/* {this.state.renderIdeas()} */}
-                    {this.renderIdeas()} 
+                    {this.renderIdeas(ideas)} 
                 </ul>
             </div>
         )
     }
 }
-function mapStateToProps(state) {
-    return {ideas: state.ideas}
-    // return { ideas: state.ideas[ownProps.match.params] }
+const mapStateToProps = (state) => {
+    return {
+        ideasIndex: state.ideas.ideasIndex
+    };
 }
-export default connect(mapStateToProps, { fetchIdeas })(IdeasIndex);
 
-// const mapStateToProps = (state) => {
-//     return { ideasIndex: state.ideas.ideasIndex }
-// }
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         fetchIdeas: () => {
-//             dispatch(fetchIdeas()).then((response) => {
-//                 dispatch(fetchIdeasSuccess(response.payload.data));
-//             });
-//         }
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchIdeas: () => {
+            dispatch(fetchIdeas()).then((response) => {
+                dispatch(fetchIdeasSuccess(response.payload.data))
+            });
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IdeasIndex);
