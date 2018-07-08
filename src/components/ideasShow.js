@@ -47,8 +47,7 @@ class IdeasShow extends Component {
 }
 
 function mapStateToProps({ideas}, ownProps) {
-
-    return {idea: ideas[ownProps.match.params.id]}
+    return {idea: ideas.ideas[ownProps.match.params.id]}
 }
 
 export default connect(mapStateToProps, {fetchIdea, deleteIdea})(IdeasShow);

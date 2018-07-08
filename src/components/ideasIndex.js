@@ -3,26 +3,17 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchIdeas } from '../actions';
+import { fetchIdeas, fetchIdeasSuccess } from '../actions';
 import AddIdeaButton from './addIdeaButton';
 import Likes from './likes'
 
 class IdeasIndex extends Component {
-    constructor(props) {
-        super(props);
-        // this.state = {
-        //     // ideasindex: { 
-        //     ideas: this.props.ideas
-        //     // loading: false 
-        //     }
-        // }
-        // this.componentDidMount = this.componentDidMount.bind(this);
+    componentDidMount() {
+        if(this.props.loading)
+        {
+            this.props.fetchIdeas()
+        }
     }
-    componentWilMount() {
-        // if(!this.state.props)
-        this.props.actions.fetchIdeas()
-    }
-// }
 
     renderIdeas() {
         return _.map(this.props.ideas, idea => {
@@ -31,7 +22,7 @@ class IdeasIndex extends Component {
                 <Link to={`/ideas/${idea.id}`}>
                     {idea.title} <br />
                 </Link>
-                    <Likes />
+                    <Likes ideaId={idea.id} likes={idea.likes}/>
                     {/* {idea.created_at} */}
                 </li>
             )
@@ -39,6 +30,10 @@ class IdeasIndex extends Component {
     }
 
     render() {
+        if(this.props.loading) {
+            return "Loading..."
+        }
+
         return(
             <div>
                 <AddIdeaButton />
@@ -52,20 +47,19 @@ class IdeasIndex extends Component {
     }
 }
 function mapStateToProps(state) {
-    return {ideas: state.ideas}
-    // return { ideas: state.ideas[ownProps.match.params] }
+    return {
+        loading: state.ideas.loading,
+        ideas: state.ideas.ideas
+    }
 }
-export default connect(mapStateToProps, { fetchIdeas })(IdeasIndex);
 
-// const mapStateToProps = (state) => {
-//     return { ideasIndex: state.ideas.ideasIndex }
-// }
 // const mapDispatchToProps = (dispatch) => {
 //     return {
 //         fetchIdeas: () => {
 //             dispatch(fetchIdeas()).then((response) => {
-//                 dispatch(fetchIdeasSuccess(response.payload.data));
+//                dispatch(fetchIdeasSuccess(response.payload.data)) 
 //             });
 //         }
 //     }
 // }
+    export default connect(mapStateToProps, { fetchIdeas })(IdeasIndex);

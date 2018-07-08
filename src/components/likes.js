@@ -16,41 +16,58 @@ class Likes extends Component {
     }
 
     updateLikes() {
-        // debugger;
+    //    this.setState((prevState) => {
 
-        // const { id } = this.props.match.params;
-        // debugger;
-        // this.props.incrementLikes(id)
-        this.setState((prevState) => {
+    //         return {
+    //             likes: prevState.likes + 1,
+    //             updated: true
+    //             }
+    //         })
 
-            return {
-                likes: prevState.likes + 1,
-                updated: true
-                }
-                // () => {
-                //     this.props.incrementLikes(2)
-                // }
-            })
-            
+
+        //    , () => {
+        //        const { id } = this.params.match.params
+        //        this.props.incrementLikes(id, this.state.likes)
+        //    }
+
+// debugger
+        this.props.incrementLikes(this.props.ideaId, this.props.likes + 1)
     }
+    // updateLikes() {
+    //     this.incrementLikes((prevState) => {
+
+    //         return {
+    //             likes: prevState.likes + 1,
+    //             updated: true
+    //             }
+    //         })
+
+    // }
+    // incrementLikes(id, num) {
+    //     // const {id} = this.params.match.params
+    //     this.props.dispatch({type: 'INC_LIKES'})
+    // }
 
     render() {
-
         return (
             <div>
                 <button 
                     className="btn btn-success" 
                     onClick={this.updateLikes}>
-                    Like <strong>{this.state.likes}</strong>
+                    Like <strong>{this.props.likes}</strong>
                 </button> 
             </div>
         );
     }
 }
+
 // export default Likes
-export default reduxForm({
-    // some config options
-    form: 'IdeaLikeForm'
-})(
-    connect(null, { incrementLikes })(Likes)
-)
+
+// function mapStateToProps(state){
+//     debugger
+//     return {
+//         likes: state.likes
+//     }
+// }
+export default connect(null, { incrementLikes})(Likes)
+

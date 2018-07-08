@@ -1,12 +1,11 @@
 // import { INC_LIKES } from '../actions';
 
-// export default function(state = [], action) {
-//     console.log(action.type)
-//     switch(action.type){
-//         case INC_LIKES:
-//             return { ...state, [action.payload.data.likes]: action.payload.data }
-//         default:
-//             return state;
-//     }
-        
-// }
+//const reducer = (state = { likes: parseInt(localStorage.getItem('likes') || 0) }, action) => {
+export default (state = 0, action) => {
+    switch (action.type) {
+        case '_UNUSED_INC_LIKES':
+            return action.payload
+        default:
+            return state
+    }
+}

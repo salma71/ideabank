@@ -20,7 +20,7 @@ export const DELETE_IDEA_SUCCESS = 'DELETE_IDEA_SUCCESS';
 export const DELETE_IDEA_FAILURE = 'DELETE_IDEA_FAILURE';
 export const RESET_DELETED_IDEA = 'RESET_DELETED_IDEA';
 
-export const INC_LIKES = 'INCREMENT_LIKES'
+// export const INC_LIKES = 'INCREMENT_LIKES'
 
 const ROOT_URL = `http://0.0.0.0:3000/api/v1`;
 
@@ -34,7 +34,12 @@ export function fetchIdeas() {
         payload: request
     }
 }
-
+export function fetchIdeasSuccess(ideas) {
+    return {
+        type: FETCH_IDEAS_SUCCESS,
+        payload: ideas
+    };
+}
 export function createIdea(values, callback) {
     // debugger;
     const request = axios.post(`${ROOT_URL}/ideas`, values)
@@ -70,12 +75,20 @@ export function deleteIdea(id, callback) {
         payload: id
     }
 }
-export function incrementLikes(id) {
-    const request = axios.patch(`${ROOT_URL}/ideas/${id}`)
+export function incrementLikes(id, likes) {
+    const request = axios.put(`${ROOT_URL}/ideas/${id}`, {likes})
+
+    // on request done, update store
 // debugger;
     return {
-        type: INC_LIKES,
-        payload: request
+        type: 'INC_LIKES',
+        payload: {
+            id,
+            likes
+        }
     }
 }
 
+// nick@karnik.io
+// http://calendar.karnik.io
+// +1.301.466.1598
