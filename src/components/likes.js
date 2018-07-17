@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { incrementLikes } from '../actions'
-import { reduxForm } from 'redux-form'
+// import { reduxForm } from 'redux-form'
 
 class Likes extends Component {
 

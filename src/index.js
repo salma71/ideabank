@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 // import { persistStore, persistReducer } from 'redux-persist'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import { Router, browserHistory } from 'react-router'
-import { save, load } from "redux-localstorage-simple"
+// import { save, load } from "redux-localstorage-simple"
 import promise from 'redux-promise';
 
 

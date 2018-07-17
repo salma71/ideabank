@@ -3,8 +3,9 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchIdeas, fetchIdeasSuccess } from '../actions';
+import { fetchIdeas } from '../actions';
 import AddIdeaButton from './addIdeaButton';
+import AddCats from './addCats';
 import Likes from './likes'
 
 class IdeasIndex extends Component {
@@ -24,6 +25,7 @@ class IdeasIndex extends Component {
                 </Link>
                     <Likes ideaId={idea.id} likes={idea.likes}/>
                     {/* {idea.created_at} */}
+                    <AddCats />
                 </li>
             )
         })

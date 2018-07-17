@@ -4,7 +4,6 @@ import { FETCH_IDEAS, FETCH_IDEA, FETCH_IDEAS_SUCCESS, DELETE_IDEA, CREATE_IDEA}
 
 
 export default function (state = {ideas: [], loading: true}, action) {
-    let value;
     // console.log(action.type)
     switch (action.type) {
         case 'INC_LIKES':

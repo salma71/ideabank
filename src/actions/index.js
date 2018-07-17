@@ -76,10 +76,11 @@ export function deleteIdea(id, callback) {
     }
 }
 export function incrementLikes(id, likes) {
-    const request = axios.put(`${ROOT_URL}/ideas/${id}`, {likes})
-
+    axios.put(`${ROOT_URL}/ideas/${id}`, {likes})
+// debugger;
     // on request done, update store
 // debugger;
+// console.log(request)
     return {
         type: 'INC_LIKES',
         payload: {
@@ -89,6 +90,11 @@ export function incrementLikes(id, likes) {
     }
 }
 
-// nick@karnik.io
-// http://calendar.karnik.io
-// +1.301.466.1598
+export function addCat(){
+    return {
+        type: 'ADD_CATS',
+        payload:{
+            name: 'TOM'
+        }
+    }
+}
